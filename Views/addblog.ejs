@@ -1,0 +1,41 @@
+<%- include('Header') %>
+
+<div class="container">
+    <div class="row ">
+      <div class="col-md-12 mt-5 ">
+        <div class="card border shadow-lg">
+          <div class="card-header text-center">
+            <h3>Create a New Post</h3>
+          </div>
+          <div class="card-body">
+            <form action="/submitblog" method="POST" enctype="multipart/form-data">
+              <!-- Image Upload -->
+              <div class="mb-3">
+                <label for="image" class="form-label">Upload Image</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+              </div>
+
+              <!-- Title -->
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+              </div>
+
+              <!-- Caption -->
+              <div class="mb-3">
+                <label for="caption" class="form-label">Caption</label>
+                <textarea class="form-control" id="caption" name="caption" rows="3" placeholder="Write a caption..." required></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Post</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('Footer') %>

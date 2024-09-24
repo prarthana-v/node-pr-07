@@ -1,0 +1,63 @@
+<%- include('Header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #image{
+    object-fit: cover;
+  }
+</style>
+<body>
+  
+<div class="container">
+  <div class="row ">
+    <div class="col-md-12 mt-5 ">
+      <div class="card border shadow-lg">
+        <div class="card-header text-center">
+          <h3>Edit Your Blog</h3>
+        </div>
+        <div class="card-body">
+          <form action="/updateblog" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<%= blog._id %>">
+            <!-- Image Upload -->
+            <div class="mb-3">
+              <label for="image" class="form-label">Upload Image</label>
+              <input type="file" class="form-control" id="image" name="image" accept="image/*" >
+              <img src="<%= blog.image %>" width="350" height="200" alt="" id="image">
+              <input type="hidden" value="<%= blog.image %>" name="exisitngImage">
+              <br>
+              <small>Your current file is shown above , if u want to change, select new from 'choose file'</small>
+            </div>
+
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" value="<%= blog.title %>" id="title" name="title" placeholder="Enter title" required>
+            </div>
+
+            <!-- Caption -->
+            <div class="mb-3">
+              <label for="caption" class="form-label">Caption</label>
+              <textarea class="form-control" id="caption" name="caption"  rows="3" placeholder="Write a caption..." required><%= blog.caption %></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary">Post</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+
+<%- include('Footer') %>
